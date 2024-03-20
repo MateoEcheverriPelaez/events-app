@@ -1,15 +1,25 @@
-node {
-  stage('Checkout') {
-    git checkout branch: 'main'  # Se eliminaron las llaves después de branch:
-  }
+pipeline {
+    agent any
 
-  stage('Build') {
-    sh 'bundle install'
-    sh 'rake db:migrate'
-    sh 'rake test'
-  }
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/MateoEcheverriPelaez/events-app.git'
+            }
+        }
 
-  stage('Deploy') {
-    # Puedes agregar comandos para despliegue aquí
-  }
+        stage('Build') {
+            steps {
+                sh 'bundle install'
+                sh 'rake db:migrate'
+                sh 'rake test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Puedes agregar comandos para despliegue aquí
+            }
+        }
+    }
 }
