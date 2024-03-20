@@ -1,6 +1,6 @@
 node {
   stage('Checkout') {
-    git checkout branch: 'main'
+    git checkout branch: 'main'  # Se eliminaron las llaves después de branch:
   }
 
   stage('Build') {
@@ -10,7 +10,6 @@ node {
   }
 
   stage('Deploy') {
-    # Puedes agregar comandos para deployar a producción
-    # (por ejemplo, usando Heroku, AWS, etc.)
+    # Puedes agregar comandos para despliegue aquí
   }
 }
