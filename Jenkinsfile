@@ -10,9 +10,9 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'bundle install' // Ejecuta el comando bundle para instalar las gemas necesarias
-                bat 'bundle exec rake db:migrate' // Ejecuta las migraciones de la base de datos
-                bat 'bundle exec rake test' // Ejecuta las pruebas
+                bat 'bundle install'
+                bat 'bundle exec rake db:migrate RAILS_ENV=test' // Ejecuta las migraciones en el entorno de prueba
+                bat 'bundle exec rake test' // Ejecuta las pruebas en el entorno de prueba
             }
         }
     }
