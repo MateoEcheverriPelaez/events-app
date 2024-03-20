@@ -4,15 +4,18 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/MateoEcheverriPelaez/events-app.git'
+                // Utilizamos el comando 'git' con parámetros compatibles con Windows
+                bat 'git clone --single-branch --branch main https://github.com/MateoEcheverriPelaez/events-app.git'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'bundle install'
-                sh 'rake db:migrate'
-                sh 'rake test'
+                // Utilizamos comandos 'bundle' y 'rake' dentro de 'bundle.bat' y 'rake.bat' respectivamente,
+                // que son los ejecutables de Ruby en sistemas Windows
+                bat 'bundle.bat install'
+                bat 'rake.bat db:migrate'
+                bat 'rake.bat test'
             }
         }
     }
