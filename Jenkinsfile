@@ -15,11 +15,5 @@ pipeline {
                 sh 'rake test'
             }
         }
-
-        stage('Deploy') {
-            steps {
-                // Puedes agregar comandos para despliegue aquí
-            }
-        }
     }
 }
