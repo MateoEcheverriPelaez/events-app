@@ -10,8 +10,8 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'bundle install'
-                bat 'bundle exec rake db:migrate RAILS_ENV=test'
+                bat '"C:\\Users\\user\\.bundle\\bin\\bundle.bat" install'
+                bat '"C:\\Users\\user\\.bundle\\bin\\bundle.bat" exec rake db:migrate RAILS_ENV=test'
             }
         }
     }
