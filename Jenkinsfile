@@ -1,3 +1,6 @@
+// Jenkinsfile
+import Event
+
 pipeline {
     agent any
 
@@ -11,18 +14,6 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    class Event {
-                        String title
-                        String description
-                        String date
-                        String address
-                        
-                        boolean valid() {
-                            // Implementa la lógica para validar el evento aquí
-                            return title && description && date && address
-                        }
-                    }
-                    
                     def event = new Event(title: "Fiesta fin de año", description: "Fiesta de amigos", date: "2024-12-31", address: "Calle 1")
                     assert event.valid(), "La prueba no pasó: el evento no es válido"
                 }
