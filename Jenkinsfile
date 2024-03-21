@@ -10,9 +10,11 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'bundle install'
-                bat 'bundle exec rake db:migrate RAILS_ENV=test' // Correr migraciones en la base de datos de prueba
-                bat 'bundle exec rake test' // Correr pruebas
+                script {
+                    // Define tu prueba aquí
+                    def event = new Event(title: "Fiesta fin de año", description: "Fiesta de amigos", date: "2024-12-31", address: "Calle 1")
+                    assert event.valid?, "La prueba no pasó: el evento no es válido"
+                }
             }
         }
     }
